@@ -1,0 +1,40 @@
+<footer class="mt-auto mt-5 border-top bg-white">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <a class="d-inline-flex align-items-center gap-2 text-decoration-none text-dark fw-semibold fs-5"
+                    href="{% url 'index' %}">
+                    <img src="/media/icon-2026-09-25T12_58_05.466Z.svg" width="30" height="34" alt="">
+                    NoteBook
+                </a>
+                <p class="text-secondary mt-3 mb-0">
+                    A little space for all the things on your mind.
+                </p>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h2 class="h6 fw-semibold mb-3">Explore</h2>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <a class="link-secondary text-decoration-none" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li>
+                        <a class="link-secondary text-decoration-none" href="{% url 'notes' %}">Browse notes</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h2 class="h6 fw-semibold mb-3">Make it yours</h2>
+                <p class="text-secondary mb-3">Capture an idea before it slips away.</p>
+                <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="{% url 'note_create' %}">
+                    Create a note
+                </a>
+            </div>
+        </div>
+
+        <div class="border-top mt-4 pt-3 d-flex flex-column flex-sm-row justify-content-center">
+            <small class="text-secondary">&copy;2026 CrispyxD. All Rights Reserved.</small>
+        </div>
+    </div>
+</footer>

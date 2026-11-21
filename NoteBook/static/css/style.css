@@ -1,0 +1,129 @@
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes header-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: page-enter 500ms ease-out both;
+}
+
+.navbar {
+    animation: header-enter 450ms ease-out both;
+}
+
+footer {
+    animation: page-enter 550ms ease-out both;
+}
+
+main .card {
+    animation: card-enter 500ms ease-out both;
+}
+
+#notes-list > [data-note-card] {
+    animation: card-enter 500ms ease-out both;
+}
+
+#notes-list > [data-note-card]:nth-child(2) {
+    animation-delay: 70ms;
+}
+
+#notes-list > [data-note-card]:nth-child(3) {
+    animation-delay: 140ms;
+}
+
+#notes-list > [data-note-card]:nth-child(4) {
+    animation-delay: 210ms;
+}
+
+#notes-list > [data-note-card]:nth-child(5) {
+    animation-delay: 280ms;
+}
+
+#notes-list > [data-note-card]:nth-child(6) {
+    animation-delay: 350ms;
+}
+
+.navbar-brand,
+.nav-link,
+.btn,
+.page-link,
+main a:not(.btn) {
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+        box-shadow 180ms ease, transform 180ms ease;
+}
+
+.navbar-brand:hover,
+.nav-link:hover,
+.btn:hover,
+.page-link:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active,
+.page-link:active {
+    transform: translateY(0) scale(0.98);
+}
+
+main .card {
+    transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+
+main .card:hover {
+    box-shadow: 0 0.75rem 1.75rem rgba(33, 37, 41, 0.1) !important;
+}
+
+main a:not(.btn):hover {
+    color: var(--bs-success-text-emphasis);
+}
+
+.form-control,
+.form-select {
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

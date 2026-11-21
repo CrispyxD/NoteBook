@@ -1,0 +1,53 @@
+{% extends 'components/base.html' %}
+
+{% block body %}
+<div class="container flex-grow-1 d-flex align-items-center py-5">
+    <div class="row g-0 overflow-hidden bg-white border rounded-4 shadow-sm w-100 mx-auto" style="max-width: 1000px;">
+        <section class="col-lg-5 bg-success-subtle p-4 p-md-5 d-flex flex-column justify-content-between">
+            <div>
+                <span class="d-inline-flex align-items-center justify-content-center rounded-3 border bg-white text-success"
+                    style="width: 3rem; height: 3rem;" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+                <span class="small fw-bold text-success text-uppercase d-block mt-4">One quick check</span>
+                <h1 class="display-6 fw-bold mt-2 mb-3">Your ideas are almost home.</h1>
+                <p class="text-secondary mb-0">Verify your email to finish setting up your NoteBook account.</p>
+            </div>
+            <div class="mt-5">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-3 border bg-white text-success"
+                    style="width: 2.6rem; height: 2.6rem;"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                <p class="fw-semibold mt-3 mb-1">A little extra security</p>
+                <p class="small text-secondary mb-0">Your verification code is private. Don’t share it with anyone.</p>
+            </div>
+        </section>
+
+        <section class="col-lg-7 p-4 p-md-5 d-flex align-items-center">
+            <div class="mx-auto" style="max-width: 420px;">
+                <span class="small fw-bold text-success text-uppercase">Email verification</span>
+                <h2 class="h2 fw-bold mt-2 mb-2">Enter your code</h2>
+                <p class="text-secondary mb-4">
+                    We sent a 6-digit verification code to
+                    <strong class="text-dark">{% if email %}{{ email }}{% else %}your email address{% endif %}</strong>.
+                    Enter it below to continue.
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="otp-code" class="form-label fw-semibold">Verification code</label>
+                        <input id="otp-code" name="otp" type="text" inputmode="numeric" maxlength="6"
+                            class="form-control text-center fs-3 fw-bold" placeholder="••••••" required>
+                        <div id="otp-help" class="form-text">Enter the 6-digit code from your email.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100">
+                        Verify email <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p class="text-secondary mb-1">Didn’t receive the email?</p>
+                    <a class="link-success fw-semibold" href="{% url 'register' %}">Use a different email</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

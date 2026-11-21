@@ -1,0 +1,27 @@
+{% extends 'components/base.html' %}
+
+{% block body %}
+<div class="container flex-grow-1 d-flex align-items-center py-5">
+    <section class="card border-0 shadow-sm rounded-4 text-center p-4 p-md-5 mx-auto w-100" style="max-width: 800px;">
+        <div class="d-inline-flex align-items-center justify-content-center rounded-4 bg-success-subtle text-success mx-auto mb-4"
+            style="width: 6rem; height: 6rem; font-size: 2.2rem;" aria-hidden="true">
+            <i class="fa-regular fa-face-sad-tear"></i>
+        </div>
+
+        <span class="small fw-bold text-success text-uppercase">A little off the page</span>
+        <p class="display-1 fw-bold text-success mb-1">404</p>
+        <h1 class="display-6 fw-bold mb-3">We couldn’t find that page.</h1>
+        <p class="text-secondary mx-auto mb-4" style="max-width: 32rem;">
+            It may have moved, or the link might be out of date. Let’s get you back to your notes.
+        </p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+            <a href="{% url 'index' %}" class="btn btn-primary btn-lg rounded-pill px-4">
+                <i class="fa-solid fa-house me-2" aria-hidden="true"></i>Back to home
+            </a>
+            <a href="{% url 'notes' %}" class="btn btn-outline-dark btn-lg rounded-pill px-4">
+                Browse my notes
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

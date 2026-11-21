@@ -1,0 +1,54 @@
+{% extends 'components/base.html' %}
+
+{% block body %}
+<div class="container py-5">
+    <a href="{% url 'notes' %}" class="link-success fw-semibold text-decoration-none mb-4 d-inline-flex">
+        <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Back to notes
+    </a>
+    <div class="mb-4">
+        <h1 class="display-6 fw-bold mt-2 mb-2">Create a Note.</h1>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mx-auto" style="max-width: 850px;">
+        <form method="post">
+            {% csrf_token %}
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <label for="note-title" class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
+                    <input id="note-title" name="title" type="text" class="form-control form-control-lg"
+                        placeholder="Give your note a name" required>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="note-author" class="form-label fw-semibold">Author <span class="text-danger">*</span></label>
+                    <input id="note-author" name="author" type="text" class="form-control form-control-lg"
+                        placeholder="Your name" required>
+                </div>
+                <div class="col-12">
+                    <label for="note-text" class="form-label fw-semibold">Your note</label>
+                    <textarea id="note-text" name="Text" placeholder="Start writing..." class="form-control"
+                        rows="9"></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="note-category" class="form-label fw-semibold">Category</label>
+                    <select id="note-category" name="category" class="form-select">
+                        {% for cate in category %}
+                        <option value="{{ cate.id }}">{{ cate.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="note-description" class="form-label fw-semibold">Description</label>
+                    <textarea id="note-description" name="description" required placeholder="Add a short summary or reminder"
+                        class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-12 d-flex flex-column-reverse flex-sm-row justify-content-end gap-2 pt-2">
+                    <a href="{% url 'notes' %}" class="btn btn-outline-dark rounded-pill px-4">Cancel</a>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4">
+                        <i class="fa-regular fa-floppy-disk me-2" aria-hidden="true"></i>Save note
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

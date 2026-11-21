@@ -1,0 +1,45 @@
+{% extends 'components/base.html' %}
+
+{% block body %}
+<div class="container py-5">
+    <a href="{% url 'notes' %}" class="link-success fw-semibold text-decoration-none mb-4 d-inline-flex">
+        <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>All notes
+    </a>
+    <article class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mx-auto" style="max-width: 900px;">
+        <header class="border-bottom pb-4 mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <span class="badge rounded-pill bg-success-subtle text-success border px-3 py-2">{{ notes.category }}</span>
+                <small class="text-secondary">{{ notes.created_at }}</small>
+            </div>
+            <h1 class="display-6 fw-bold mb-3">{{ notes.title }}</h1>
+            <p class="text-secondary mb-0">
+                <i class="fa-regular fa-user me-2" aria-hidden="true"></i>Written by {{ notes.author }}
+            </p>
+        </header>
+
+        <section class="mb-4">
+            <h2 class="h6 text-uppercase text-secondary fw-bold mb-3">The note</h2>
+            <div class="text-break" style="white-space: pre-wrap; line-height: 1.8;">{{ notes.Text }}</div>
+        </section>
+
+        {% if notes.description %}
+        <section class="bg-light border rounded-3 p-3 p-md-4 mb-4">
+            <h2 class="h6 fw-bold mb-2">A little context</h2>
+            <p class="text-secondary mb-0">{{ notes.description }}</p>
+        </section>
+        {% endif %}
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 pt-3 border-top">
+            <a href="{% url 'notes' %}" class="btn btn-outline-dark rounded-pill px-4">Back to notes</a>
+            <div class="d-flex gap-2">
+                <a href="{% url 'notes_update' notes.id %}" class="btn btn-primary rounded-pill px-4">
+                    <i class="fa-regular fa-pen-to-square me-1" aria-hidden="true"></i>Edit note
+                </a>
+                <a href="{% url 'notes_delete' notes.id %}" class="btn btn-outline-danger rounded-pill px-4">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock %}
