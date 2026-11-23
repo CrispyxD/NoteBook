@@ -1,4 +1,4 @@
 # Superuser Name and password
 
-Name - Admin
-Passord - 12345
+- Name - Admin
+- Passord - 12345
